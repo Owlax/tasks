@@ -8,9 +8,19 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-    type: QuestionType
+    type: QuestionType,
+    body: string,
+    expected: string,
+    options: Array<string>,
+    points: number,
+    published: boolean
 ): Question {
-    return {};
+    body = "";
+    expected = "";
+    options = [];
+    points = 1;
+    published = false;
+    return { id, name, type, body, expected, options, points, published };
 }
 
 /**
@@ -21,7 +31,9 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    let expect = question.expected;
+    expect = expect.toLowerCase();
+    return answer.trim().toLowerCase() === expect.trim();
 }
 
 /**
