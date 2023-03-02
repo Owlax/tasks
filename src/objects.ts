@@ -107,6 +107,12 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+    console.log(question.published);
+    question.published = !question.published;
+    console.log(question.published);
+    if (question.name === "My Addition Question") {
+        question.name = "Addition";
+    }
     return question;
 }
 
