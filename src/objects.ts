@@ -8,19 +8,18 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-    type: QuestionType,
-    body: string,
-    expected: string,
-    options: Array<string>,
-    points: number,
-    published: boolean
+    type: QuestionType
 ): Question {
-    body = "";
-    expected = "";
-    options = [];
-    points = 1;
-    published = false;
-    return { id, name, type, body, expected, options, points, published };
+    return {
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false
+    };
 }
 
 /**
