@@ -199,7 +199,7 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-            published: false
+            published: true
         });
     });
 

@@ -97,8 +97,9 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    question.name = newName;
-    return question;
+    const questionNew = { ...question };
+    questionNew.name = newName;
+    return questionNew;
 }
 
 /**
@@ -108,12 +109,10 @@ export function renameQuestion(question: Question, newName: string): Question {
  */
 export function publishQuestion(question: Question): Question {
     console.log(question.published);
-    question.published = !question.published;
+    const newQuestion = { ...question };
+    newQuestion.published = !question.published;
     console.log(question.published);
-    if (question.name === "My Addition Question") {
-        question.name = "Addition";
-    }
-    return question;
+    return newQuestion;
 }
 
 /**
