@@ -43,11 +43,9 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    if (question.options.length === 0) {
-        return true;
-    } else {
-        return question.options.includes(answer);
-    }
+    return question.options.length === 0
+        ? true
+        : question.options.includes(answer);
 }
 
 /**
@@ -108,10 +106,8 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    console.log(question.published);
     const newQuestion = { ...question };
     newQuestion.published = !question.published;
-    console.log(question.published);
     return newQuestion;
 }
 
@@ -122,7 +118,11 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return oldQuestion;
+    const newQuestion = { ...oldQuestion };
+    newQuestion.published = false;
+    newQuestion.name = "Copy of " + oldQuestion.name;
+    newQuestion.id = id;
+    return newQuestion;
 }
 
 /**
@@ -133,7 +133,9 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const newQuestion = { ...question };
+    newQuestion.options = [...newQuestion.options, newOption];
+    return newQuestion;
 }
 
 /**
@@ -150,5 +152,10 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const merged = { ...contentQuestion };
+    merged.id = id;
+    merged.name = name;
+    merged.points = points;
+    merged.published = false;
+    return merged;
 }
