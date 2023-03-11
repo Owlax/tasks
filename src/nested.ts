@@ -242,7 +242,6 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    console.log(targetOptionIndex);
     const spice = (options: string[]): string[] => {
         const funOp = [...options];
         funOp.splice(targetOptionIndex, 1, newOption);
