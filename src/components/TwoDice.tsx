@@ -22,6 +22,10 @@ export function TwoDice(): JSX.Element {
         setNumB(d6());
     }
 
+    function heckinESLINT(): string {
+        return numA === 1 ? "Lose" : "Win";
+    }
+
     return (
         <>
             <span>
@@ -30,7 +34,7 @@ export function TwoDice(): JSX.Element {
             </span>
             <span data-testid="left-die">{numA}</span>
             <span data-testid="right-die">{numB}</span>
-            <span>{numA === numB ? (numA === 1 ? "Lose" : "Win") : ""}</span>
+            <span>{numA === numB ? heckinESLINT() : ""}</span>
         </>
     );
 }
