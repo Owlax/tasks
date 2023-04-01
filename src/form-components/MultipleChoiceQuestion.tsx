@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
+import React from "react";
 
 export function MultipleChoiceQuestion({
     options,
@@ -9,7 +10,9 @@ export function MultipleChoiceQuestion({
 }): JSX.Element {
     return (
         <div>
-            <h3>Multiple Choice Question</h3>
+            <h3>
+                Multiple Choice Question {options} {expectedAnswer}
+            </h3>
         </div>
     );
 }
